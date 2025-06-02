@@ -566,8 +566,11 @@ void ImGui::ShowDemoWindow(bool* p_open)
                 ImGui::SameLine(); HelpMarker("Toggling this at runtime is normally unsupported (most platform backends won't refresh the decoration right away).");
                 ImGui::Checkbox("io.ConfigViewportsNoDefaultParent", &io.ConfigViewportsNoDefaultParent);
                 ImGui::SameLine(); HelpMarker("Toggling this at runtime is normally unsupported (most platform backends won't refresh the parenting right away).");
-                //ImGui::CheckboxFlags("ImGuiConfigFlags_DpiEnableScaleViewports", &io.ConfigFlags, ImGuiConfigFlags_DpiEnableScaleViewports);
-                //ImGui::CheckboxFlags("ImGuiConfigFlags_DpiEnableScaleFonts", &io.ConfigFlags, ImGuiConfigFlags_DpiEnableScaleFonts);
+
+                ImGui::CheckboxFlags("ImGuiConfigFlags_DpiEnableScaleFonts", &io.ConfigFlags, ImGuiConfigFlags_DpiEnableScaleFonts);
+                ImGui::SameLine(); HelpMarker("Apply an extra font scale of 'monitor->DpiScale / style.Scale'. This will scale fonts but NOT style sizes/padding for now.");
+                ImGui::CheckboxFlags("ImGuiConfigFlags_DpiEnableScaleViewports", &io.ConfigFlags, ImGuiConfigFlags_DpiEnableScaleViewports);
+                ImGui::SameLine(); HelpMarker("Scale secondary viewports when 'monitor->DpiScale' changes. Resizing the main viewport itself is up to your application.");
                 ImGui::Unindent();
             }
 
