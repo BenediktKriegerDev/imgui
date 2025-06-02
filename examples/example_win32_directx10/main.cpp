@@ -69,6 +69,8 @@ int main(int, char**)
     // Setup a base main scale baked into style.
     ImGuiStyle& style = ImGui::GetStyle();
     style.ScaleAllSizes(dpi_scale);
+    io.ConfigFlags |= ImGuiConfigFlags_DpiEnableScaleFonts;     // FIXME-DPI: Experimental. This will scale fonts based on monitor scale. This will NOT scale sizes/padding in style.
+    io.ConfigFlags |= ImGuiConfigFlags_DpiEnableScaleViewports; // FIXME-DPI: Experimental. This will scale secondary viewport based on monitor scale.
 
     // When viewports are enabled we tweak WindowRounding/WindowBg so platform windows can look identical to regular ones.
     if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
